@@ -3,6 +3,10 @@ import Relax from '../assets/relax.svg';
 import Swim from '../assets/swim.svg';
 import Bicycle from '../assets/bicycle.svg';
 import LiftingWeights from '../assets/liftingWeights.svg';
+import styled from 'styled-components';
+
+const VerticalMenuContainer = styled.div`
+`;
 
 function VerticalMenu() {
     return (
