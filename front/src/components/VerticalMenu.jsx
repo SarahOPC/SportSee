@@ -14,7 +14,7 @@ const VerticalMenuContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
-    margin: 13em 0em 0em 0em;
+    margin: 11em 0em 0em 0em;
 `;
 
 const Copyright = styled.div`
@@ -22,7 +22,7 @@ const Copyright = styled.div`
     rotate: 270deg;
     width: max-content;
     align-self: center;
-    margin-top: 11em;
+    margin-top: 9em;
 `;
 
 function VerticalMenu() {
