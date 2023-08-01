@@ -11,7 +11,7 @@ Cette page va notamment permettre à l’utilisateur de suivre le nombre de sess
 ### Installation et demarrage du projet
 
 Apres avoir installe create react app avec **npx create-react-app nomdelapplication** et styled-component avec **yarn add styled-components**,
-on peut demarrer l'application avec **yarn start**
+on peut demarrer l'application avec **yarn start** en se placant sur **/SportSee/front**
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -28,4 +28,4 @@ This page will in particular allow the user to follow the number of sessions car
 ### Installing and starting the project
 
 After installing create react app with **npx create-react-app applicationname** and styled-component with **yarn add styled-components**,
-you can start the application with **yarn start**
+you can start the application with **yarn start** by standing on **/SportSee/front**

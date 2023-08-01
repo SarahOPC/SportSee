@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const HorizontalMenuContainer = styled.div`
     background-color: #000000;
+    display: flex;
+    align-items: center;
 `;
 
 function HorizontalMenu() {
