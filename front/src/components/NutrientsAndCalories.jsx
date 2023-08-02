@@ -5,6 +5,8 @@ import CarbohydratesIcon from '../assets/carbs-icon.svg';
 import FatsIcon from '../assets/fat-icon.svg';
 
 const NutrientsAndCaloriesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 const NutrientIconContainer = styled.img`
