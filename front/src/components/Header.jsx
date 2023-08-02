@@ -41,7 +41,7 @@ function Header() {
                 <Hello>Bonjour</Hello>
                 <You>{ firstUserFirstName }</You>
             </HelloYou>
-            <Congratulations>Félicitation ! Vous avez explosé vos objectifs hier 👏</Congratulations>
+            <Congratulations>Félicitations ! Vous avez explosé vos objectifs hier 👏</Congratulations>
         </HeaderContainer>
     );
 }

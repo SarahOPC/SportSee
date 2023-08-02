@@ -10,12 +10,18 @@ const LowPart = styled.div`
     display: flex;
 `;
 
+const VerticalMenuContainer = styled.div`
+    width: 15%;
+`;
+
 function Dashboard() {
     return(
         <DashboardTotalContainer>
             <HorizontalMenu />
             <LowPart>
-                <VerticalMenu />
+                <VerticalMenuContainer>
+                    <VerticalMenu />
+                </VerticalMenuContainer>
                 <DashboardContainer />
             </LowPart>
         </DashboardTotalContainer>
