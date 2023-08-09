@@ -1,12 +1,6 @@
-import styled from 'styled-components';
 import { fetchUserData } from '../DataFetchingFile';
-import { RadialBar, Legend, Tooltip } from 'recharts';
+import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState, useEffect } from 'react';
-
-const RadialBarChart = styled.div`
-    width: 100%;
-    height: 100%;
-`;
 
 const userId = 12;
 
@@ -29,18 +23,20 @@ function Kpi() {
         return <div>Loading...</div>;
     }
     const userKpi = userData.todayScore;
+    console.log(userKpi);
     const userKpiPercentage = userKpi*100;
 
-    const data = [{ score: userKpiPercentage }];
+    const data = [{ todayScore: userKpiPercentage }];
+    console.log(data);
 
     return(
-        <div>
-            <RadialBarChart width={730} height={250} data={data}>
-                <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='score' />
+        <ResponsiveContainer>
+            <RadialBarChart width={730} height={250} innerRadius="10%" outerRadius="80%" data={data} startAngle={180} endAngle={0}>
+                <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='todayScore' />
                 <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
                 <Tooltip />  
             </RadialBarChart>
-        </div>
+        </ResponsiveContainer>
     );
 }
 
