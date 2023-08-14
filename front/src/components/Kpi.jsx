@@ -22,17 +22,11 @@ function Kpi() {
     if(!userData) {
         return <div>Loading...</div>;
     }
-    const userKpi = userData.todayScore;
-    console.log(userKpi);
-    const userKpiPercentage = userKpi*100;
-
-    const data = [{ todayScore: userKpiPercentage }];
-    console.log(data);
-
+    
     return(
         <ResponsiveContainer>
-            <RadialBarChart width={730} height={250} innerRadius="10%" outerRadius="80%" data={data} startAngle={180} endAngle={0}>
-                <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey='todayScore' />
+            <RadialBarChart width={730} height={250} innerRadius="10%" outerRadius="80%" startAngle={180} endAngle={0} data={[userData]}>
+                <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey={(payload) => payload.todayScore * 100} />
                 <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
                 <Tooltip />  
             </RadialBarChart>

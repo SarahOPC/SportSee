@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fetchUserData } from '../DataFetchingFile';
+import MockedData from './MockedData';
 import { useEffect, useState } from 'react';
 
 const HeaderContainer = styled.div`
@@ -26,13 +26,13 @@ const Congratulations = styled.p`
     font-weight: 500;
 `;
 
-const userId = 12;
-
 function Header() {
-    const [userData, setUserData] = useState(null);
-
+    const [userFirstName, setUserFirstName] = useState(null);
+    
     useEffect(() => {
-        const fetchData = async () => {
+        const firstName = MockedData.MainMockedData[0].userInfos.firstName;
+        setUserFirstName(firstName);
+        /* const fetchData = async () => {
             try {
                 const data = await fetchUserData(userId);
                 setUserData(data);
@@ -40,15 +40,18 @@ function Header() {
                 console.error("Error while fetching data : ", error.message);
             }
         };
-        fetchData();
+        fetchData(); */
     }, []);
 
-    if(!userData) {
+    if(!userFirstName) {
+        return <div>Loading...</div>
+    }
+    /* if(!userData) {
         return <div>Loading...</div>;
     }
 
     const userFirstName = userData.userInfos.firstName;
-    
+     */
 
     return(
         <HeaderContainer>
