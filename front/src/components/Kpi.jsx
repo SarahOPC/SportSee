@@ -1,14 +1,15 @@
-import { fetchUserData } from '../DataFetchingFile';
+// import { fetchUserData } from '../DataFetchingFile';
 import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import MockedData from './MockedData';
 import { useState, useEffect } from 'react';
-
-const userId = 12;
 
 function Kpi() {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const todayScore = MockedData.MainMockedData[0].todayScore * 100;
+        setUserData(todayScore);
+        /* const fetchData = async () => {
             try {
                 const data = await fetchUserData(userId);
                 setUserData(data);
@@ -17,6 +18,7 @@ function Kpi() {
             }
         };
         fetchData();
+    }, []); */
     }, []);
 
     if(!userData) {

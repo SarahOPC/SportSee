@@ -10,6 +10,8 @@
     4 - Use the class in the app: Whenever we get data from the API, we use the class's methods to format it before using it in the app
  */
 
+import data from './data.js';
+
 class DataModel {
     constructor(mainData, activityData, averageData, performanceData) {
         this.mainData = mainData;
@@ -78,7 +80,7 @@ const {
     USER_ACTIVITY,
     USER_AVERAGE_SESSIONS,
     USER_PERFORMANCE
-} = require('../../../app/data');
+} = require(data);
 
 const dataModel = new DataModel(
     USER_MAIN_DATA,

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import MockedData from './MockedData';
 import { useEffect, useState } from 'react';
+import dataModel from './DataModeling';
 
 const HeaderContainer = styled.div`
     margin: 2.5em 0.5em 2.5em 9.5em;
@@ -30,7 +30,8 @@ function Header() {
     const [userFirstName, setUserFirstName] = useState(null);
     
     useEffect(() => {
-        const firstName = MockedData.MainMockedData[0].userInfos.firstName;
+        const formattedUserData = dataModel.mainData;
+        const firstName = formattedUserData[0].nom;
         setUserFirstName(firstName);
         /* const fetchData = async () => {
             try {
