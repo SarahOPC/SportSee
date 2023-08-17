@@ -13,9 +13,8 @@ import { mockedData } from './components/MockedData';
     }
 } */
 
-async function fetchMockedUserData() {
+export async function fetchMockedUserData() {
     const dataToUse = mockedData;
+    console.log(dataToUse);
     return dataToUse;
 }
-
-export default fetchMockedUserData;

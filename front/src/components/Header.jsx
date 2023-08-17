@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import dataModel from './DataModeling';
+import { fetchMockedUserData } from '../DataFetchingFile';
+import { formatUserData } from './DataModeling';
 
 const HeaderContainer = styled.div`
     margin: 2.5em 0.5em 2.5em 9.5em;
@@ -30,38 +31,29 @@ function Header() {
     const [userFirstName, setUserFirstName] = useState(null);
     
     useEffect(() => {
-        console.log(dataModel);
-        console.log(dataModel.formattedUserData);
-        const formattedUserData = dataModel.mainData;
-        console.log(formattedUserData);
-        const firstName = formattedUserData[0].nom;
-        setUserFirstName(firstName);
-        /* const fetchData = async () => {
+        async function fetchData() {
             try {
-                const data = await fetchUserData(userId);
-                setUserData(data);
+                const userData = await fetchMockedUserData();
+                console.log('userData' + userData);
+                const formattedFirstName = formatUserData(userData);
+                console.log('formattedFirstName' + formattedFirstName);
+                setUserFirstName(formattedFirstName);
             } catch(error) {
-                console.error("Error while fetching data : ", error.message);
+                console.error(error);
             }
-        };
-        fetchData(); */
+        }
+        fetchData();      
     }, []);
 
     if(!userFirstName) {
         return <div>Loading...</div>
     }
-    /* if(!userData) {
-        return <div>Loading...</div>;
-    }
-
-    const userFirstName = userData.userInfos.firstName;
-     */
 
     return(
         <HeaderContainer>
             <HelloYou>
                 <Hello>Bonjour</Hello>
-                <You>{ userFirstName }</You>
+                <You>{ userFirstName.formattedFirstName }</You>
             </HelloYou>
             <Congratulations>Félicitations ! Vous avez explosé vos objectifs hier 👏</Congratulations>
         </HeaderContainer>
