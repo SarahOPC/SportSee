@@ -30,7 +30,10 @@ function Header() {
     const [userFirstName, setUserFirstName] = useState(null);
     
     useEffect(() => {
+        console.log(dataModel);
+        console.log(dataModel.formattedUserData);
         const formattedUserData = dataModel.mainData;
+        console.log(formattedUserData);
         const firstName = formattedUserData[0].nom;
         setUserFirstName(firstName);
         /* const fetchData = async () => {
