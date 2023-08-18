@@ -1,6 +1,6 @@
 // To add more cleaner code, clarity, organization, testing possibility, reusability and for separation of concern
 
-import { mockedData } from './components/MockedData';
+import { MainMockedData, ActivityMockedData, AverageMockedData, PerformanceMockedData } from './components/MockedData';
 
 /* async function fetchUserData(userId, endpoint) {
     const url = `http://localhost:3000/user/${userId}${endpoint ? `/${endpoint}` : ''}`;
@@ -13,8 +13,17 @@ import { mockedData } from './components/MockedData';
     }
 } */
 
-export async function fetchMockedUserData() {
-    const dataToUse = mockedData;
-    console.log(dataToUse);
-    return dataToUse;
+export async function fetchMockedUserData(dataType) {
+    switch(dataType) {
+        case 'main':
+            return { data: MainMockedData };
+        case 'activity':
+            return { data: ActivityMockedData };
+        case 'average':
+            return { data: AverageMockedData };
+        case 'performance':
+            return { data: PerformanceMockedData };
+        default:
+            throw new Error('Invalid data type');
+    }
 }

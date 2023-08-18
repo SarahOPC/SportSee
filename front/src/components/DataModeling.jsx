@@ -2,9 +2,9 @@
 // More easily manage data, manipulate it and display it in a user interface
 
 export function formatUserData(userData) {
-    const { firstName, todayScore } = userData;
+    const { userInfos, todayScore } = userData[0];
     const formattedData = {
-        formattedFirstName: firstName,
+        formattedFirstName: userInfos.firstName,
         formattedScore: todayScore,
     }
     return formattedData;
