@@ -5,7 +5,7 @@ export function formatUserData(userData) {
     const { userInfos, todayScore } = userData[0];
     const formattedData = {
         formattedFirstName: userInfos.firstName,
-        formattedScore: todayScore,
+        formattedScore: todayScore * 100,
     }
     return formattedData;
 }

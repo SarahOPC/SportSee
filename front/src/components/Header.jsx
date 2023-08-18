@@ -34,10 +34,8 @@ function Header() {
         async function fetchData() {
             try {
                 const userData = await fetchMockedUserData('main');
-                const dataofuserData = userData.data;
-                console.log(dataofuserData);
-                const formattedFirstName = formatUserData(dataofuserData);
-                console.log(formattedFirstName);
+                const dataOfUserData = userData.data;
+                const formattedFirstName = formatUserData(dataOfUserData);
                 setUserFirstName(formattedFirstName);
             } catch(error) {
                 console.error(error);

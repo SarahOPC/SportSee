@@ -1,34 +1,42 @@
 // import { fetchUserData } from '../DataFetchingFile';
 import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from 'recharts';
-import MockedData from './MockedData';
 import { useState, useEffect } from 'react';
+import { fetchMockedUserData } from '../DataFetchingFile';
+import { formatUserData } from './DataModeling';
 
 function Kpi() {
-    const [userData, setUserData] = useState(null);
+    const [userScore, setUserScore] = useState(null);
 
     useEffect(() => {
-        const todayScore = MockedData.MainMockedData[0].todayScore * 100;
-        setUserData(todayScore);
-        /* const fetchData = async () => {
+        async function fetchData() {
             try {
-                const data = await fetchUserData(userId);
-                setUserData(data);
+                const userData = await fetchMockedUserData('main');
+                const dataOfUserData = userData.data;
+                const formattedScore = formatUserData(dataOfUserData);
+                setUserScore(formattedScore);
             } catch(error) {
-                console.error("Error while fetching data : ", error.message);
+                console.log(error);
             }
-        };
-        fetchData();
-    }, []); */
+        }
+        fetchData();      
     }, []);
 
-    if(!userData) {
+    if(!userScore) {
         return <div>Loading...</div>;
     }
     
+    const chartData = [{ formattedScore: userScore.formattedScore }];
+    console.log(chartData[0].formattedScore);
+
     return(
-        <ResponsiveContainer>
-            <RadialBarChart width={730} height={250} innerRadius="10%" outerRadius="80%" startAngle={180} endAngle={0} data={[userData]}>
-                <RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey={(payload) => payload.todayScore * 100} />
+        <ResponsiveContainer width="100%" height="100%">
+            <RadialBarChart  cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" startAngle={180} endAngle={0} data={chartData[0]}>
+                <RadialBar 
+                    minAngle={15} 
+                    label={{ fill: '#666', position: 'insideStart' }} 
+                    background 
+                    clockWise={true} 
+                    dataKey="formattedScore" />
                 <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
                 <Tooltip />  
             </RadialBarChart>
