@@ -48,8 +48,8 @@ function Kpi() {
 export default Kpi; */
 
 
-
-import { RadialBarChart, RadialBar } from 'recharts';
+/* 
+import { RadialBarChart, RadialBar, Legend, Tooltip } from 'recharts';
 
 function Kpi() {
     const data = [
@@ -61,13 +61,13 @@ function Kpi() {
                 <h1>Hello, Recharts!</h1>
                 <RadialBarChart data={data}>
                     <RadialBar
-                        /* minAngle={15}
+                        minAngle={15}
                         label={{ fill: '#666', position: 'insideStart' }}
                         background
-                        clockWise={true} */
+                        clockWise={true}
                         dataKey="value"
                     />
-                    {/* <Legend
+                    <Legend
                         iconSize={10}
                         width={120}
                         height={140}
@@ -75,10 +75,11 @@ function Kpi() {
                         verticalAlign="middle"
                         align="right"
                     />
-                    <Tooltip /> */}
+                    <Tooltip />
                 </RadialBarChart>
             </div>
     );
 }
 
 export default Kpi;
+ */

@@ -5,14 +5,17 @@ import NotNutrientsAndCalories from './NotNutrientsAndCaloriesContainer';
 
 const ElementsContainer = styled.div`
     display: flex;
+    width: 100%;
 `;
 
 const LeftContainer = styled.div`
     display: flex;
     flex-direction: column;
+    flex: 75%;
 `;
 
 const RightContainer = styled.div`
+    flex: 25%;
 `;
 
 function DashboardContainer() {
