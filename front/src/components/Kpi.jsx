@@ -24,9 +24,10 @@ function Kpi() {
     if(!userScore) {
         return <div>Loading...</div>;
     }
-    
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     const chartData = [{ name: 'Score', value: userScore.formattedScore }];
     console.log(chartData);
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     return(
         <ResponsiveContainer width="100%" height="100%">

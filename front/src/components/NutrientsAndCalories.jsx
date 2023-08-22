@@ -102,7 +102,7 @@ function NutrientsAndCalories() {
                 const formattedCalories = formatUserData(dataOfUserData);
                 const formattedProteins = formatUserData(dataOfUserData);
                 const formattedCarbs = formatUserData(dataOfUserData);
-                const formattedFats = formatUserData(dataOfUserData)
+                const formattedFats = formatUserData(dataOfUserData);
                 setUserCalories(formattedCalories);
                 setUserProteins(formattedProteins);
                 setUserCarbs(formattedCarbs);
