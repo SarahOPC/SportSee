@@ -35,7 +35,7 @@ function Header() {
             try {
                 const userData = await fetchMockedUserData('main');
                 const dataOfUserData = userData.data;
-                const formattedFirstName = formatUserData(dataOfUserData);
+                const formattedFirstName = formatUserData(dataOfUserData, 'main');
                 setUserFirstName(formattedFirstName);
             } catch(error) {
                 console.error(error);

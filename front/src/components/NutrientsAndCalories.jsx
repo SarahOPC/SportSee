@@ -99,10 +99,10 @@ function NutrientsAndCalories() {
             try {
                 const userData = await fetchMockedUserData('main');
                 const dataOfUserData = userData.data;
-                const formattedCalories = formatUserData(dataOfUserData);
-                const formattedProteins = formatUserData(dataOfUserData);
-                const formattedCarbs = formatUserData(dataOfUserData);
-                const formattedFats = formatUserData(dataOfUserData);
+                const formattedCalories = formatUserData(dataOfUserData, 'main');
+                const formattedProteins = formatUserData(dataOfUserData, 'main');
+                const formattedCarbs = formatUserData(dataOfUserData, 'main');
+                const formattedFats = formatUserData(dataOfUserData, 'main');
                 setUserCalories(formattedCalories);
                 setUserProteins(formattedProteins);
                 setUserCarbs(formattedCarbs);

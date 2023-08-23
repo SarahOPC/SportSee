@@ -12,7 +12,7 @@ function Kpi() {
             try {
                 const userData = await fetchMockedUserData('main');
                 const dataOfUserData = userData.data;
-                const formattedScore = formatUserData(dataOfUserData);
+                const formattedScore = formatUserData(dataOfUserData, 'main');
                 setUserScore(formattedScore);
             } catch(error) {
                 console.log(error);
