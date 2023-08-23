@@ -15,18 +15,19 @@ function Weight() {
         async function fetchData() {
             try {
                 const userData = await fetchMockedUserData('activity');
-                console.log(userData);
                 const dataOfUserData = userData.data;
-                console.log(dataOfUserData);
                 const formattedSessions = formatUserData(dataOfUserData, 'activity');
-                console.log(formattedSessions);
-                setUserSessions(formattedSessions.formattedSessions);
+                setUserSessions(formattedSessions);
             } catch(error) {
                 console.log(error);
             }
         }
         fetchData();
     }, []);
+
+    useEffect(() => {
+        console.log(userSessions);
+    }, [userSessions]);
 
     return(
         <WeightContainer>
