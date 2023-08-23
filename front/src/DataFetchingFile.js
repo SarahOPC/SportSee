@@ -18,7 +18,7 @@ export async function fetchMockedUserData(dataType) {
         case 'main':
             return { data: MainMockedData };
         case 'activity':
-            return { data: ActivityMockedData[0] };
+            return { data: ActivityMockedData };
         case 'average':
             return { data: AverageMockedData };
         case 'performance':

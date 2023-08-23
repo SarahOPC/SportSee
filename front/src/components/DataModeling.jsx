@@ -13,8 +13,9 @@ export function formatUserData(userData, dataType) {
             formattedFats: keyData.lipidCount,
         };
         return formattedData;
+
     } else if(dataType === 'activity') {
-        const { sessions } = userData;
+        const { sessions } = userData[0];
         const formattedSessions = sessions.map(session => ({
             day: session.day,
             kilogram: session.kilogram,
@@ -24,7 +25,29 @@ export function formatUserData(userData, dataType) {
             formattedSessions: formattedSessions,
         };
         return formattedData;
+
+    } else if(dataType === 'average') {
+        const { sessions } = userData[0];
+        const formattedSessionsLength = sessions.map(session => ({
+            day: session.day,
+            sessionLength: session.sessionLength,
+        }));
+        const formattedData = {
+            formattedSessionsLength: formattedSessionsLength,
+        };
+        return formattedData;
+
+    } else if(dataType === 'performance') {
+        const { kind, data } = userData[0];
+        const formattedDataWithKind = data.map(dataElement => ({
+            value: dataElement.value,
+            kind: kind[dataElement.kind], // Retrieve the kind type based on the value
+        }));
+        const formattedData = {
+            formattedDataWithKind: formattedDataWithKind,
+        };
+        return formattedData;
     } else {
-        throw new Error('Invalid data type');
+            throw new Error('Invalid data type');
     }        
 }

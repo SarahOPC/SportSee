@@ -34,14 +34,10 @@ function Kpi() {
     if(!userScore) {
         return <div>Loading...</div>;
     }
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    const chartData = [{ value: userScore}];
-    console.log(chartData);
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     return(
         <KpiContainer>
-            <RadialBarChartFunction data={ chartData } />
+            <RadialBarChartFunction data={ userScore } />
         </KpiContainer>
     );
 }

@@ -9,7 +9,7 @@ export default function RadialBarChartFunction({ data }) {
                     label={{ fill: '#666', position: 'insideStart' }} 
                     background 
                     clockWise={true} 
-                    dataKey="value" />
+                    dataKey="formattedScore" />
                 <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
                 <Tooltip />  
             </RadialBarChart>
