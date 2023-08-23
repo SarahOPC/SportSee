@@ -25,10 +25,10 @@ function Weight() {
         fetchData();
     }, []);
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(userSessions);
     }, [userSessions]);
-
+ */
     return(
         <WeightContainer>
             <SimpleBarChart data={ userSessions } />

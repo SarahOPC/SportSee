@@ -3,7 +3,11 @@
 import { useState, useEffect } from 'react';
 import { fetchMockedUserData } from '../DataFetchingFile';
 import { formatUserData } from './DataModeling';
-import { RadialBarChartFunction } from './RadialBarChart';
+import RadialBarChartFunction from './RadialBarChartComponent';
+import styled from 'styled-components';
+
+const KpiContainer = styled.div`
+`;
 
 function Kpi() {
     const [userScore, setUserScore] = useState(null);
@@ -22,16 +26,23 @@ function Kpi() {
         fetchData();      
     }, []);
 
+/* useEffect(() => {
+        console.log(userScore);
+    }, [userScore]);
+*/
+
     if(!userScore) {
         return <div>Loading...</div>;
     }
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    const chartData = [{ name: 'Score', value: userScore.formattedScore }];
+    const chartData = [{ value: userScore}];
     console.log(chartData);
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     return(
-        <RadialBarChartFunction data={ chartData } />
+        <KpiContainer>
+            <RadialBarChartFunction data={ chartData } />
+        </KpiContainer>
     );
 }
 
