@@ -27,7 +27,7 @@ function Goals() {
 
     /* useEffect(() => {
         console.log(userSessionsLength);
-    }, [userSessions]);
+    }, [userSessionsLength]);
  */
     return(
         <GoalsContainer>

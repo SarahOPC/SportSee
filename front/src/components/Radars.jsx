@@ -7,7 +7,7 @@ import SimpleRadarChart from './SimpleRadarChartComponent';
 const RadarContainer = styled.div`
 `;
 
-function Radar() {
+function RadarFunction() {
 
     const [userPerformance, setUserPerformance] = useState([]);
 
@@ -27,7 +27,7 @@ function Radar() {
 
     /* useEffect(() => {
         console.log(userPerformance);
-    }, [userSessionsPerformance]);
+    }, [userPerformance]);
  */
     return(
         <RadarContainer>
@@ -36,4 +36,4 @@ function Radar() {
     );
 }
 
-export default Radar;
+export default RadarFunction;
