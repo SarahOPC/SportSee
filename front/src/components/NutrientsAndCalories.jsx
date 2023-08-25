@@ -38,25 +38,45 @@ const FatsContainer = styled.div`
 const Calories = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin: 25% 0%;
+    margin: 13% 0%;
+    width: 15em;
+    height: 6em;
+    padding: 1.5em;
+    border-radius: 0.7em;
+    align-items: center;
 `;
 
 const Proteins = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin-bottom: 25%;
+    margin-bottom: 15%;
+    width: 13em;
+    height: 6em;
+    padding: 1.5em;
+    border-radius: 0.7em;
+    align-items: center;
 `;
 
 const Carbs = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin-bottom: 25%;
+    margin-bottom: 13%;
+    width: 15em;
+    height: 6em;
+    padding: 1.5em;
+    border-radius: 0.7em;
+    align-items: center;
 `;
 
 const Fats = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin-bottom: 25%;
+    margin-bottom: 13%;
+    width: 15em;
+    height: 6em;
+    padding: 1.5em;
+    border-radius: 0.7em;
+    align-items: center;
 `;
 
 const CaloriesWord = styled.div`
