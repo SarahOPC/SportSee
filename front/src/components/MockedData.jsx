@@ -65,7 +65,7 @@ const AverageMockedData = [
         sessions: [
             {
                 day: 1,
-                sessionLength: 15
+                sessionLength: 27
             },
             {
                 day: 2,
@@ -73,19 +73,19 @@ const AverageMockedData = [
             },
             {
                 day: 3,
-                sessionLength: 15
+                sessionLength: 22
             },
             {
                 day: 4,
-                sessionLength: 15
+                sessionLength: 17
             },
             {
                 day: 5,
-                sessionLength: 0
+                sessionLength: 13
             },
             {
                 day: 6,
-                sessionLength: 0
+                sessionLength: 32
             },
             {
                 day: 7,

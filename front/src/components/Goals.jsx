@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GoalsFetching } from './GoalsFetching';
+import fetchGoalsData from './FetchGoalsData';
 import SimpleLineChart from './SimpleLineChartComponent';
 import styled from 'styled-components';
 
@@ -14,7 +14,7 @@ function Goals() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const fetchedData = await GoalsFetching.fetchData();
+                const fetchedData = await fetchGoalsData();
                 setData(fetchedData);
                 setIsLoading(false); // only when data are available
             } catch (error) {
