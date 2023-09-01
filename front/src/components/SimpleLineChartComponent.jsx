@@ -1,26 +1,28 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, /* YAxis, CartesianGrid, Tooltip, Legend, */ ResponsiveContainer } from 'recharts';
 
-export default function SimpleLineChartFunction({ data }) {
-    return (
-        <ResponsiveContainer width="100%" height="100%">
+const renderLineChart = (data) => ( // Accept data prop as a parameter
+  <ResponsiveContainer width="100%" height={300}>
         <LineChart
           width={500}
           height={300}
           data={data}
-          margin={{
+          /* margin={{
             top: 5,
             right: 30,
             left: 20,
             bottom: 5,
-          }}
+          }} */
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="sessionLength" />
+          <XAxis dataKey="day" />
+          {/* <CartesianGrid strokeDasharray="3 3" />
           <YAxis />
           <Tooltip />
-          <Legend />
-          <Line type="sessionLength" dataKey="uv" stroke="#82ca9d" />
+          <Legend /> */}
+          <Line type="monotone" dataKey="sessionLength" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
-    );
+)
+
+export default function SimpleLineChartFunction({ data }) {
+    return renderLineChart(data); // Pass the data prop to renderLineChart
 }

@@ -1,6 +1,5 @@
-import { fetchMockedUserData } from '../DataFetchingFile';
-import { formatUserData } from './DataModeling';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { GoalsFetching } from './GoalsFetching';
 import SimpleLineChart from './SimpleLineChartComponent';
 import styled from 'styled-components';
 
@@ -9,29 +8,29 @@ const GoalsContainer = styled.div`
 
 function Goals() {
 
-    const [userSessionsLength, setUserSessionsLength] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const userData = await fetchMockedUserData('average');
-                const dataOfUserData = userData.data;
-                const formattedSessionsLength = formatUserData(dataOfUserData, 'average');
-                setUserSessionsLength(formattedSessionsLength);
-            } catch(error) {
-                console.log(error);
+                const fetchedData = await GoalsFetching.fetchData();
+                setData(fetchedData);
+                setIsLoading(false); // only when data are available
+            } catch (error) {
+                console.error(error);
             }
         }
         fetchData();
     }, []);
-
-    /* useEffect(() => {
-        console.log(userSessionsLength);
-    }, [userSessionsLength]);
- */
+ 
     return(
         <GoalsContainer>
-            <SimpleLineChart data={ userSessionsLength } />
+            {isLoading ? ( // as long as data are not available
+                <div>Loading...</div>
+            ) : ( // as soon as the data are available
+                <SimpleLineChart data={ data } />
+            )}
         </GoalsContainer>
     );
 }
