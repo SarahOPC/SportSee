@@ -41,7 +41,7 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
   return (
     <div onMouseEnter= {() => setHovered(true)}
     onMouseLeave={() => setHovered(false)}
-    style={{ position: 'relative' }}>
+    style={{ position: 'relative', width: 'fit-content' }}>
     
     {hovered && (
       <div style={{
@@ -49,10 +49,10 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
         top: 0,
         right: 0,
         bottom: 0,
-        left: '50%',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        transform: 'translateX(-50%)',
-        zIndex: -1,
+        left: '65%',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        transform: 'translateX(0%)',
+        zIndex: 1,
       }}
       ></div>
     )}
