@@ -1,14 +1,35 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
+
+const RenderRadarChart = ({ data }) => { //Accept data as a parameter
+
+  const chartStyle = {
+    backgroundColor: '#282D30',
+    width: '258px',
+    height: '275px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  return (
+    <div style={chartStyle}>
+      <RadarChart
+        width={250}
+        height={200}
+        data={data.formattedDataWithKind}
+        >
+        <PolarGrid />
+        <PolarAngleAxis dataKey="kind" fontSize='0.7em' fontWeight='700'/>
+        <Radar
+          dataKey="value"
+          fill="#FF0101"
+          fillOpacity={0.6}  
+        />
+      </RadarChart>
+    </div>
+    );
+}
 
 export default function SimpleRadarChartFunction({ data }) {
-    return (
-        <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="kind" />
-          <PolarRadiusAxis />
-          <Radar dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-        </RadarChart>
-      </ResponsiveContainer>
-    );
+  return <RenderRadarChart data={data} /> // Pass the data prop to renderRadarChart
 }

@@ -1,23 +1,22 @@
-import styled from 'styled-components';
-import { fetchMockedUserData } from '../DataFetchingFile';
-import { formatUserData } from './DataModeling';
 import { useEffect, useState } from 'react';
+import fetchRadarsData from './FetchRadarsData';
 import SimpleRadarChart from './SimpleRadarChartComponent';
+import styled from 'styled-components';
 
 const RadarContainer = styled.div`
 `;
 
 function RadarFunction() {
 
-    const [userPerformance, setUserPerformance] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const userData = await fetchMockedUserData('performance');
-                const dataOfUserData = userData.data;
-                const formattedSessionsPerformance = formatUserData(dataOfUserData, 'performance');
-                setUserPerformance(formattedSessionsPerformance);
+                const fetchedData = await fetchRadarsData();
+                setData(fetchedData);
+                setIsLoading(false); // only when data are available
             } catch(error) {
                 console.log(error);
             }
@@ -25,13 +24,13 @@ function RadarFunction() {
         fetchData();
     }, []);
 
-    /* useEffect(() => {
-        console.log(userPerformance);
-    }, [userPerformance]);
- */
     return(
         <RadarContainer>
-            <SimpleRadarChart data={ userPerformance } />
+            {isLoading ? ( // as long as data are not available
+                <div>Loading...</div>
+            ) : ( // as soon as the data are available
+                <SimpleRadarChart data={data} />
+            )}
         </RadarContainer>
     );
 }
