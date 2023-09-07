@@ -6,7 +6,7 @@ const MainMockedData = [
             lastName: 'Richa',
             age: 40,
         },
-        todayScore: 0.47,
+        todayScore: 0.13,
         keyData: {
             calorieCount: 1750,
             proteinCount: 135,

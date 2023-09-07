@@ -1,18 +1,38 @@
-import { RadialBarChart, RadialBar, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { RadialBarChart, RadialBar } from 'recharts';
+
+const RenderRadiaBarChart = ({ data }) => { // Accept data prop as a parameter
+    
+    const { formattedPercentage, formattedScore } = data[0];
+
+    const chartData = [
+        { name: 'formattedPercentage', value: formattedPercentage},
+        { name: 'formattedScore', value: formattedScore},
+    ];
+    
+    return (
+        <div>
+            <div style={{ textAlign: 'left', marginTop: '2em', marginLeft: '2em', fontWeight: '600' }}>Score</div>
+            <RadialBarChart 
+                width={258}
+                height={275}
+                innerRadius={20}
+                outerRadius={140}
+                startAngle={180} // from left
+                endAngle={0} // to right
+                data={chartData}
+                barSize={10}
+            >
+                <RadialBar
+                    dataKey="value"
+                    fill='#FF0000'
+                    background
+                    clockWise
+                />
+            </RadialBarChart>
+        </div>
+    )
+}
 
 export default function RadialBarChartFunction({ data }) {
-    return (
-        <ResponsiveContainer width="100%" height="100%">
-            <RadialBarChart innerRadius="10%" outerRadius="80%" data={data}>
-                <RadialBar 
-                    minAngle={15} 
-                    label={{ fill: '#666', position: 'insideStart' }} 
-                    background 
-                    clockWise={true} 
-                    dataKey="formattedScore" />
-                <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" />
-                <Tooltip />  
-            </RadialBarChart>
-        </ResponsiveContainer>
-    )
+    return <RenderRadiaBarChart data={data} />; // Pass the data prop to renderRadialBarChart
 }

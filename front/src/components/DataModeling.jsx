@@ -4,14 +4,17 @@
 export function formatUserData(userData, dataType) {
     if(dataType === 'main') {
         const { userInfos, todayScore, keyData } = userData[0];
-        const formattedData = {
-            formattedFirstName: userInfos.firstName,
-            formattedScore: todayScore * 100,
-            formattedCalories: keyData.calorieCount,
-            formattedProteins: keyData.proteinCount,
-            formattedCarbs: keyData.carbohydrateCount,
-            formattedFats: keyData.lipidCount,
-        };
+        const formattedData = [
+            {
+                formattedFirstName: userInfos.firstName,
+                formattedScore: todayScore * 100,
+                formattedPercentage: 100,
+                formattedCalories: keyData.calorieCount,
+                formattedProteins: keyData.proteinCount,
+                formattedCarbs: keyData.carbohydrateCount,
+                formattedFats: keyData.lipidCount,
+            },
+        ];
         return formattedData;
 
     } else if(dataType === 'activity') {

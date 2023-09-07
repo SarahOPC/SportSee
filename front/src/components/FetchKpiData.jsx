@@ -6,7 +6,7 @@ export default async function fetchKpiData() {
         const userData = await fetchMockedUserData('main');
         const dataOfUserData = userData.data;
         const formattedScore = formatUserData(dataOfUserData, 'main');
-        return formattedScore.formattedScore;
+        return formattedScore;
     } catch(error) {
         throw error;
     }
