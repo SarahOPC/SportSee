@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const GoalsContainer = styled.div`
     width: fit-content;
-    background-color: black;
 `;
 
 function Goals() {

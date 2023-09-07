@@ -9,7 +9,7 @@ export function formatUserData(userData, dataType) {
                 formattedFirstName: userInfos.firstName,
                 formattedScore: todayScore * 100,
                 formattedPercentage: 100,
-                formattedCalories: keyData.calorieCount,
+                formattedCalories: keyData.calorieCount.toLocaleString(),
                 formattedProteins: keyData.proteinCount,
                 formattedCarbs: keyData.carbohydrateCount,
                 formattedFats: keyData.lipidCount,

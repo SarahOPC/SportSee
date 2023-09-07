@@ -123,10 +123,10 @@ function NutrientsAndCalories() {
                 const formattedProteins = formatUserData(dataOfUserData, 'main');
                 const formattedCarbs = formatUserData(dataOfUserData, 'main');
                 const formattedFats = formatUserData(dataOfUserData, 'main');
-                setUserCalories(formattedCalories);
-                setUserProteins(formattedProteins);
-                setUserCarbs(formattedCarbs);
-                setUserFats(formattedFats);
+                setUserCalories(formattedCalories[0].formattedCalories);
+                setUserProteins(formattedProteins[0].formattedProteins);
+                setUserCarbs(formattedCarbs[0].formattedCarbs);
+                setUserFats(formattedFats[0].formattedFats);
             } catch(error) {
                 console.log(error);
             }
@@ -139,28 +139,28 @@ function NutrientsAndCalories() {
             <Calories>
                 <NutrientIconContainer src={CaloriesIcon} alt='Calories icon'/>
                 <CaloriesContent>
-                    <CaloriesContainer>{ userCalories.formattedCalories + "kCal" }</CaloriesContainer>
+                    <CaloriesContainer>{ userCalories + "kCal" }</CaloriesContainer>
                     <CaloriesWord>Calories</CaloriesWord>
                 </CaloriesContent>
             </Calories>
             <Proteins>
                 <NutrientIconContainer src={ProteinsIcon} alt='Protein icon' />
                 <ProteinsContent>
-                    <ProteinsContainer>{ userProteins.formattedProteins + "g"  }</ProteinsContainer>
+                    <ProteinsContainer>{ userProteins + "g"  }</ProteinsContainer>
                     <ProteinsWord>Protéines</ProteinsWord>
                 </ProteinsContent>
             </Proteins>
             <Carbs>
                 <NutrientIconContainer src={CarbohydratesIcon} alt='Carbs icon' />
                 <CarbsContent>
-                    <CarbsContainer>{ userCarbs.formattedCarbs + "g"  }</CarbsContainer>
+                    <CarbsContainer>{ userCarbs + "g"  }</CarbsContainer>
                     <CarbsWord>Glucides</CarbsWord>
                 </CarbsContent>
             </Carbs>
             <Fats>
                 <NutrientIconContainer src={FatsIcon} alt='Fats icon' />
                 <FatsContent>
-                    <FatsContainer>{ userFats.formattedFats + "g"  }</FatsContainer>
+                    <FatsContainer>{ userFats + "g"  }</FatsContainer>
                     <FatsWord>Lipides</FatsWord>
                 </FatsContent>
             </Fats>
