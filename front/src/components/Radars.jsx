@@ -4,6 +4,7 @@ import SimpleRadarChart from './SimpleRadarChartComponent';
 import styled from 'styled-components';
 
 const RadarContainer = styled.div`
+    margin: 0em 2em;
 `;
 
 function RadarFunction() {

@@ -42,7 +42,10 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
     <div
       onMouseEnter= {() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ position: 'relative', width: 'fit-content' }}>
+      style={{ 
+        position: 'relative',
+        width: 'fit-content'
+      }}>
     
       {hovered && (
       <div style={{
@@ -57,7 +60,11 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
       }}
       ></div>
       )}
-
+    <div
+      style={{
+        borderRadius: '0.3em',
+        overflow: 'hidden', // Ensure that the border radius is applied correctly
+      }} >
       <LineChart
         width={258}
         height={275}
@@ -68,6 +75,7 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
           left: -65,
           bottom: 15,
         }}
+        borderRadius= '0.3em'
       >
       <defs>
         <linearGradient id='gradient' x1="0" y1="0" x2="100%" y2="0" >
@@ -83,6 +91,7 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
       <Tooltip content={CustomTooltip} cursor={false} />
       <Line type="monotone" dataKey="sessionLength" stroke="url(#gradient)" dot={false} strokeWidth={1.5} />
     </LineChart>
+    </div>
   </div>
   );
 };

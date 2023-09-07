@@ -10,7 +10,7 @@ const RenderRadiaBarChart = ({ data }) => { // Accept data prop as a parameter
     ];
     
     return (
-        <div>
+        <div style={{ borderRadius: '0.3em' }}>
             <div style={{ textAlign: 'left', marginTop: '2em', marginLeft: '2em', fontWeight: '600' }}>Score</div>
             <RadialBarChart 
                 width={258}

@@ -9,6 +9,7 @@ const RenderRadarChart = ({ data }) => { //Accept data as a parameter
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: '0.3em',
   };
 
   return (

@@ -4,6 +4,7 @@ import Goals from './Goals';
 import Radars from './Radars';
 
 const RadarKpiGoalsContainer = styled.div`
+    display: flex;
 `;
 
 function RadarKpiGoals() {
