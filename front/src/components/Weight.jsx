@@ -1,23 +1,22 @@
-import styled from 'styled-components';
-import { fetchMockedUserData } from '../DataFetchingFile';
-import { formatUserData } from './DataModeling';
 import { useEffect, useState } from 'react';
+import fetchWeightData from './FetchWeightData';
 import SimpleBarChart from './SimpleBarChartComponent';
+import styled from 'styled-components';
 
 const WeightContainer = styled.div`
 `;
 
 function Weight() {
 
-    const [userSessions, setUserSessions] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const userData = await fetchMockedUserData('activity');
-                const dataOfUserData = userData.data;
-                const formattedSessions = formatUserData(dataOfUserData, 'activity');
-                setUserSessions(formattedSessions);
+                const fetchedData = await fetchWeightData();
+                setData(fetchedData);
+                setIsLoading(false); // only when data are available
             } catch(error) {
                 console.log(error);
             }
@@ -25,13 +24,13 @@ function Weight() {
         fetchData();
     }, []);
 
-    /* useEffect(() => {
-        console.log(userSessions);
-    }, [userSessions]);
- */
     return(
         <WeightContainer>
-            <SimpleBarChart data={ userSessions } />
+            {isLoading ? ( // as long as data are not available
+                <div>Loading...</div>
+            ) : ( // as soon as the data are available
+                <SimpleBarChart data={ data } />
+            )}
         </WeightContainer>
     );
 }
