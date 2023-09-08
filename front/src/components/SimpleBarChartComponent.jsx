@@ -79,7 +79,7 @@ const RenderBarChart = ({data}) => { // Accept data prop as a parameter
             </AboveBarChartDiv>
             <BarChart
                 width={900}
-                height={300}
+                height={250}
                 data={data}
                 >
                 <CartesianGrid

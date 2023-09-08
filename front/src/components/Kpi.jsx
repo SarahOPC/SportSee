@@ -11,16 +11,17 @@ const KpiContainer = styled.div`
 
 const LegendDiv = styled.div`
     position: relative;
-    bottom: 175px;
-    left: 75px;
+    bottom: 122px;
+    left: 59px;
     background-color: #FFFFFF;
     padding: 0.3em;
     width: 6em;
+    border-radius: 3em;
 `;
 
 const ContainerOfTheChart = styled.div`
     position: absolute;
-    height: 275px;
+    height: 225px;
 `;
 
 const BoldSpan = styled.span`

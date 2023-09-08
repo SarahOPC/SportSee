@@ -38,7 +38,6 @@ const FatsContainer = styled.div`
 const Calories = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin: 13% 0%;
     width: 15em;
     height: 6em;
     padding: 1.5em;
@@ -49,7 +48,6 @@ const Calories = styled.div`
 const Proteins = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin-bottom: 15%;
     width: 13em;
     height: 6em;
     padding: 1.5em;
@@ -60,7 +58,6 @@ const Proteins = styled.div`
 const Carbs = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin-bottom: 13%;
     width: 15em;
     height: 6em;
     padding: 1.5em;
@@ -71,24 +68,31 @@ const Carbs = styled.div`
 const Fats = styled.div`
     display: flex;
     background-color: #FBFBFB;
-    margin-bottom: 13%;
     width: 15em;
     height: 6em;
-    padding: 1.5em;
     border-radius: 0.7em;
     align-items: center;
+    padding-left: 1.5em;
 `;
 
 const CaloriesWord = styled.div`
+    font-weight: 600;
+    color: #74798C;
 `;
 
 const ProteinsWord = styled.div`
+    font-weight: 600;
+    color: #74798C;
 `;
 
 const CarbsWord = styled.div`
+    font-weight: 600;
+    color: #74798C;
 `;
 
 const FatsWord = styled.div`
+    font-weight: 600;
+    color: #74798C;
 `;
 
 const CaloriesContent = styled.div`

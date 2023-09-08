@@ -4,11 +4,11 @@ import { fetchMockedUserData } from '../DataFetchingFile';
 import { formatUserData } from './DataModeling';
 
 const HeaderContainer = styled.div`
-    margin: 2.5em 0.5em 2.5em 9.5em;
+    margin: 0em 0em 1.5em 0em;
 `;
 
 const HelloYou = styled.div`
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
     display: flex;
 `;
@@ -36,7 +36,7 @@ function Header() {
                 const userData = await fetchMockedUserData('main');
                 const dataOfUserData = userData.data;
                 const formattedFirstName = formatUserData(dataOfUserData, 'main');
-                setUserFirstName(formattedFirstName);
+                setUserFirstName(formattedFirstName[0].formattedFirstName);
             } catch(error) {
                 console.error(error);
             }
@@ -52,7 +52,7 @@ function Header() {
         <HeaderContainer>
             <HelloYou>
                 <Hello>Bonjour</Hello>
-                <You>{ userFirstName.formattedFirstName }</You>
+                <You>{ userFirstName }</You>
             </HelloYou>
             <Congratulations>Félicitations ! Vous avez explosé vos objectifs hier 👏</Congratulations>
         </HeaderContainer>

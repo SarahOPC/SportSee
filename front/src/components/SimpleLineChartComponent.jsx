@@ -66,8 +66,8 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
         overflow: 'hidden', // Ensure that the border radius is applied correctly
       }} >
       <LineChart
-        width={258}
-        height={275}
+        width={225}
+        height={225}
         data={data}
         margin={{
           top: 15,

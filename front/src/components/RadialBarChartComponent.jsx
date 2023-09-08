@@ -10,11 +10,11 @@ const RenderRadiaBarChart = ({ data }) => { // Accept data prop as a parameter
     ];
     
     return (
-        <div style={{ borderRadius: '0.3em' }}>
-            <div style={{ textAlign: 'left', marginTop: '2em', marginLeft: '2em', fontWeight: '600' }}>Score</div>
+        <div style={{ borderRadius: '0.3em', backgroundColor: '#FBFBFB', height: '225px', width: '225px' }}>
+            <div style={{ textAlign: 'left', paddingTop: '2em', marginLeft: '2em', fontWeight: '600' }}>Score</div>
             <RadialBarChart 
-                width={258}
-                height={275}
+                width={225}
+                height={195}
                 innerRadius={20}
                 outerRadius={140}
                 startAngle={180} // from left

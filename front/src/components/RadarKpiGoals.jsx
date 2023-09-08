@@ -5,7 +5,9 @@ import Radars from './Radars';
 
 const RadarKpiGoalsContainer = styled.div`
     display: flex;
-`;
+    justify-content: space-around;
+    width: 700px;
+    `;
 
 function RadarKpiGoals() {
     return(

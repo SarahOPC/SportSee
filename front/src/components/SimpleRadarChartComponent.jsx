@@ -4,8 +4,8 @@ const RenderRadarChart = ({ data }) => { //Accept data as a parameter
 
   const chartStyle = {
     backgroundColor: '#282D30',
-    width: '258px',
-    height: '275px',
+    width: '225px',
+    height: '225px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -15,8 +15,8 @@ const RenderRadarChart = ({ data }) => { //Accept data as a parameter
   return (
     <div style={chartStyle}>
       <RadarChart
-        width={250}
-        height={200}
+        width={175}
+        height={175}
         data={data.formattedDataWithKind}
         >
         <PolarGrid />

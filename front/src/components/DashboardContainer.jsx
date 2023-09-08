@@ -4,7 +4,6 @@ import NutrientsAndCalories from './NutrientsAndCalories';
 import NotNutrientsAndCalories from './NotNutrientsAndCaloriesContainer';
 
 const ElementsContainer = styled.div`
-    display: flex;
     width: 100%;
 `;
 
@@ -18,16 +17,22 @@ const RightContainer = styled.div`
     flex: 25%;
 `;
 
+const LeftAndRightContainer = styled.div`
+    display: flex;
+`;
+
 function DashboardContainer() {
     return(
         <ElementsContainer>
-            <LeftContainer>
-                <Header />
-                <NotNutrientsAndCalories />
-            </LeftContainer>
-            <RightContainer>
-                <NutrientsAndCalories />
-            </RightContainer>
+            <Header />
+            <LeftAndRightContainer>
+                <LeftContainer>
+                    <NotNutrientsAndCalories />
+                </LeftContainer>
+                <RightContainer>
+                    <NutrientsAndCalories />
+                </RightContainer>
+            </LeftAndRightContainer>
         </ElementsContainer>
     );
 }
