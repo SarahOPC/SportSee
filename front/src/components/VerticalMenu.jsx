@@ -10,7 +10,7 @@ const VerticalMenuContainer = styled.div`
     flex-direction: column;
     background-color: #000000;
     width: 7em;
-    height: 55em;
+    height: 50em;
 `;
 
 const IconContainer = styled.div`
