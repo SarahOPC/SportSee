@@ -25,7 +25,7 @@ const RenderRadiaBarChart = ({ data }) => { // Accept data prop as a parameter
                 <RadialBar
                     dataKey="value"
                     fill='#FF0000'
-                    background
+                    background={false}
                     clockWise
                 />
             </RadialBarChart>
