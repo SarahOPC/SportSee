@@ -18,7 +18,7 @@ const CustomLegend = (props) => {
   );
 };
 
-const tooltipStyle = {
+const tooltipClassicStyle = {
   backgroundColor: '#FFFFFF',
   padding: '0.5em',
   fontWeight: '600'
@@ -28,38 +28,33 @@ const dayOfWeek = ['L','M','M','J','V','S','D'];
 
 const CustomTooltip = ({ active, payload }) => {
   if(active && payload && payload.length) {
+    const data = payload[0].payload;
+
     return (
-      <div style={tooltipStyle}>{`${payload[0].value} min`}</div>
+      <div style={tooltipClassicStyle}>{`${data.sessionLength} min`}</div>
     )
-  };
+  }
   return null;
 }
 
 const RenderLineChart = ({data}) => { // Accept data prop as a parameter
-  const [hovered, setHovered] = useState(false);
+  const [hoveredDay, setHoveredDay] = useState(null);
+
+  const handleMouseEnter = (day) => {
+    setHoveredDay(day);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredDay(null);
+  };
 
   return (
     <div
-      onMouseEnter= {() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={handleMouseLeave}
       style={{ 
         position: 'relative',
         width: 'fit-content'
       }}>
-    
-      {hovered && (
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: '65%',
-        backgroundColor: 'rgba(0, 0, 0, 0.1)',
-        transform: 'translateX(0%)',
-        zIndex: 1,
-      }}
-      ></div>
-      )}
     <div
       style={{
         borderRadius: '0.3em',
@@ -78,18 +73,58 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
         borderRadius= '0.3em'
       >
       <defs>
-        <linearGradient id='gradient' x1="0" y1="0" x2="100%" y2="0" >
+        <linearGradient
+          id='gradient'
+          x1="0"
+          y1="0"
+          x2="100%"
+          y2="0" >
           <stop offset="0%" stopColor='#BFBFBF' />
           <stop offset="100%" stopColor='#FFFFFF' />
         </linearGradient>
       </defs>
-      <Legend content={CustomLegend} verticalAlign='top'/>
-      <rect width="100%" height="100%" fill="#FF0000" />
-      <XAxis dataKey="day" axisLine={false} tickLine={false}
-      tickFormatter={(value) => dayOfWeek[value - 1]} tick={{fill: '#FFFFFF', opacity: 0.6}} padding={{left: 10, right: 10}} />
-      <YAxis axisLine={false} tick={null} />
-      <Tooltip content={CustomTooltip} cursor={false} />
-      <Line type="monotone" dataKey="sessionLength" stroke="url(#gradient)" dot={false} strokeWidth={1.5} />
+      <Legend
+        content={CustomLegend}
+        verticalAlign='top'
+      />
+      <rect
+        width="100%"
+        height="100%"
+        fill="#FF0000"
+      />
+      <XAxis
+        dataKey="day"
+        axisLine={false}
+        tickLine={false}
+        tickFormatter={(value) => dayOfWeek[value - 1]}
+        tick={{fill: '#FFFFFF', opacity: 0.6}}
+        padding={{left: 10, right: 10}}
+      />
+      <YAxis
+        axisLine={false}
+        tick={null}
+      />
+      <Tooltip
+        content={CustomTooltip}
+        cursor={false}
+      />
+      {dayOfWeek.map((day, index) => (
+        <rect
+          key={index}
+          x={`${25 + index * 10}%`}
+          y={0}
+          fill={hoveredDay === day ? 'rgba(0, 0, 0, 0.1)' : 'transparent'}
+          onMouseEnter={() => handleMouseEnter(index + 1)}
+          onMouseLeave={handleMouseLeave}
+          pointerEvents="none" // Allow events to pass through
+        />
+      ))}
+      <Line
+        type="monotone"
+        dataKey="sessionLength"
+        stroke="url(#gradient)"
+        dot={false}
+        strokeWidth={1.5}/>
     </LineChart>
     </div>
   </div>
