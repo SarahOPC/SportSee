@@ -18,15 +18,15 @@ const CustomLegend = (props) => {
   );
 };
 
+const dayOfWeek = ['L','M','M','J','V','S','D'];
+
 const tooltipClassicStyle = {
   backgroundColor: '#FFFFFF',
   padding: '0.5em',
   fontWeight: '600'
 };
 
-const dayOfWeek = ['L','M','M','J','V','S','D'];
-
-const CustomTooltip = ({ active, payload }) => {
+const ClassicTooltip = ({ active, payload }) => {
   if(active && payload && payload.length) {
     const data = payload[0].payload;
 
@@ -38,23 +38,30 @@ const CustomTooltip = ({ active, payload }) => {
 }
 
 const RenderLineChart = ({data}) => { // Accept data prop as a parameter
-  const [hoveredDay, setHoveredDay] = useState(null);
-
-  const handleMouseEnter = (day) => {
-    setHoveredDay(day);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredDay(null);
-  };
+  const [hovered, setHovered] = useState(false);
 
   return (
     <div
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter= {() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{ 
         position: 'relative',
         width: 'fit-content'
       }}>
+
+        {hovered && (
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: '65%',
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+          transform: 'translateX(0%)',
+          zIndex: 1,
+          }}
+        ></div>
+        )}
     <div
       style={{
         borderRadius: '0.3em',
@@ -74,7 +81,7 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
       >
       <defs>
         <linearGradient
-          id='gradient'
+          id='gradient' // this part add the linear gradient from grey to white on the line of the chart
           x1="0"
           y1="0"
           x2="100%"
@@ -105,20 +112,9 @@ const RenderLineChart = ({data}) => { // Accept data prop as a parameter
         tick={null}
       />
       <Tooltip
-        content={CustomTooltip}
+        content={ClassicTooltip}
         cursor={false}
       />
-      {dayOfWeek.map((day, index) => (
-        <rect
-          key={index}
-          x={`${25 + index * 10}%`}
-          y={0}
-          fill={hoveredDay === day ? 'rgba(0, 0, 0, 0.1)' : 'transparent'}
-          onMouseEnter={() => handleMouseEnter(index + 1)}
-          onMouseLeave={handleMouseLeave}
-          pointerEvents="none" // Allow events to pass through
-        />
-      ))}
       <Line
         type="monotone"
         dataKey="sessionLength"
