@@ -3,7 +3,8 @@ import CaloriesIcon from '../assets/calories-icon.svg';
 import ProteinsIcon from '../assets/protein-icon.svg';
 import CarbohydratesIcon from '../assets/carbs-icon.svg';
 import FatsIcon from '../assets/fat-icon.svg';
-import { fetchMockedUserData } from '../DataFetchingFile';
+// import { fetchMockedUserData } from '../DataFetchingFile'; // For MockedData ------------
+import { fetchUserData } from '../DataFetchingFile'; // For real data +++++++++++
 import { formatUserData } from './DataModeling';
 import { useEffect, useState } from 'react';
 
@@ -121,12 +122,17 @@ function NutrientsAndCalories() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const userData = await fetchMockedUserData('main');
-                const dataOfUserData = userData.data;
-                const formattedCalories = formatUserData(dataOfUserData, 'main');
-                const formattedProteins = formatUserData(dataOfUserData, 'main');
-                const formattedCarbs = formatUserData(dataOfUserData, 'main');
-                const formattedFats = formatUserData(dataOfUserData, 'main');
+                // const userData = await fetchMockedUserData('main'); // For MockedData ------------
+                const userData = await fetchUserData(18, 'main'); // For real data +++++++++++
+                // const dataOfUserData = userData.data; // For MockedData ------------
+                // const formattedCalories = formatUserData(dataOfUserData, 'main'); // For MockedData ------------
+                // const formattedProteins = formatUserData(dataOfUserData, 'main'); // For MockedData ------------
+                // const formattedCarbs = formatUserData(dataOfUserData, 'main'); // For MockedData ------------
+                // const formattedFats = formatUserData(dataOfUserData, 'main'); // For MockedData ------------
+                const formattedCalories = formatUserData(userData, 'main'); // For real data +++++++++++
+                const formattedProteins = formatUserData(userData, 'main'); // For real data +++++++++++
+                const formattedCarbs = formatUserData(userData, 'main'); // For real data +++++++++++
+                const formattedFats = formatUserData(userData, 'main'); // For real data +++++++++++
                 setUserCalories(formattedCalories[0].formattedCalories);
                 setUserProteins(formattedProteins[0].formattedProteins);
                 setUserCarbs(formattedCarbs[0].formattedCarbs);

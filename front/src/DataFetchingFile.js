@@ -1,9 +1,16 @@
 // To add more cleaner code, clarity, organization, testing possibility, reusability and for separation of concern
 
-import { MainMockedData, ActivityMockedData, AverageMockedData, PerformanceMockedData } from './components/MockedData';
+// import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '../../app/data.js'; // For MockedData ------------
 
-/* async function fetchUserData(userId, endpoint) {
-    const url = `http://localhost:3000/user/${userId}${endpoint ? `/${endpoint}` : ''}`;
+// For real data ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+export async function fetchUserData(userId, endpoint) {
+    let url = `http://localhost:3000/user/${userId}${endpoint ? `/${endpoint}` : ''}`;
+    if(endpoint === 'main') {
+        url = `http://localhost:3000/user/${userId}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.data;
+    }
     try{
         const response = await fetch(url);
         const data = await response.json();
@@ -11,9 +18,15 @@ import { MainMockedData, ActivityMockedData, AverageMockedData, PerformanceMocke
     } catch(error) {
         throw new Error("Error fetching data : " + error.message);
     }
-} */
+}
 
-export async function fetchMockedUserData(dataType) {
+// For real data ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// For MockedData --------------------------------------------------------------------------------------------------------------
+
+// import { MainMockedData, ActivityMockedData, AverageMockedData, PerformanceMockedData } from './components/MockedData';
+
+/* export async function fetchMockedUserData(dataType) {
     switch(dataType) {
         case 'main':
             return { data: MainMockedData };
@@ -26,4 +39,6 @@ export async function fetchMockedUserData(dataType) {
         default:
             throw new Error('Invalid data type');
     }
-}
+} */
+
+// For MockedData --------------------------------------------------------------------------------------------------------------

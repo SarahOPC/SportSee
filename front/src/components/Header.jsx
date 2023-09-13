@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { fetchMockedUserData } from '../DataFetchingFile';
+// import { fetchMockedUserData } from '../DataFetchingFile'; // For MockedData ------------
+import { fetchUserData } from '../DataFetchingFile'; // For real data +++++++++++
 import { formatUserData } from './DataModeling';
 
 const HeaderContainer = styled.div`
@@ -33,9 +34,11 @@ function Header() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const userData = await fetchMockedUserData('main');
-                const dataOfUserData = userData.data;
-                const formattedFirstName = formatUserData(dataOfUserData, 'main');
+                // const userData = await fetchMockedUserData('main'); // For MockedData ------------
+                const userData = await fetchUserData(18, 'main'); // For real data +++++++++++
+                // const dataOfUserData = userData.data; // For MockedData ------------
+                // const formattedFirstName = formatUserData(dataOfUserData, 'main'); // For MockedData ------------
+                const formattedFirstName = formatUserData(userData, 'main'); // For real data +++++++++++
                 setUserFirstName(formattedFirstName[0].formattedFirstName);
             } catch(error) {
                 console.error(error);

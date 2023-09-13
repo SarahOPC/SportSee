@@ -30,6 +30,7 @@ const BarChartContainer = styled.div`
     width: 900px;
     background-color: #FBFBFB;
     padding: 1em;
+    margin-bottom: 2em;
 `;
 
 const Title = styled.div`
