@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Project Context
+
+This is an application allowing a user to find their entire sports profile, namely for their day, their weight, calories burned, calories and macronutrients ingested, types of activities, achievement of their daily goal and his efforts of the week, all represented in the form of different graphs
+
+### Tools
+
+To create this profile page, we used the JS framework React for the code part and for the graphics, we chose to use Recharts.
+The design follows a Figma mockup.
