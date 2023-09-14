@@ -75,5 +75,5 @@ This is an application allowing a user to find their entire sports profile, name
 
 ### Tools
 
-To create this profile page, we used the JS framework React for the code part and for the graphics, we chose to use Recharts.
+To create this profile page, we used the JS framework React for the code part and for the graphics, we chose to use Recharts library.
 The design follows a Figma mockup.
